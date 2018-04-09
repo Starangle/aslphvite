@@ -360,7 +360,9 @@ inputXform = ~j macro|inhead inmatrix
 inhead = <MMFIdMask> string parmkind [<PreQual>]
 inmatrix = <LinXform> <VecSize> int <BlockInfo> int int {int} block {block}
 block = <Block> int xform
-anndef = [~N macro] <BeginANN> <NumLayers> int layer{layer}<EndANN> layer = <Layer:Exp> int layerinfo layerinfo = ~L macro|<BeginLayer> <LayerKind> string <InputFeature> feamix [parameters] activation <EndLayer>
+anndef = [~N macro] <BeginANN> <NumLayers> int layer{layer}<EndANN>
+layer = <Layer:Exp> int layerinfo
+layerinfo = ~L macro|<BeginLayer> <LayerKind> string <InputFeature> feamix [parameters] activation <EndLayer>
 feamix = ~F macro|[ <NumFeatures> int int ] feature{feature}
 feature = <Feature:Exp> int <Source> feasrc [<DimRange> int int] <ContextShift> int int {int}
 feasrc = parmKind|stream|~L macro
