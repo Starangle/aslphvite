@@ -380,7 +380,7 @@ activation = <Activation> string [<NumParameters> int] <Parameter:Exp> int ~V ma
 
 | MMF文件内容                   | sym被设置为      | marcoType被设置为       |
 | ------------------------- | ------------ | ------------------- |
-| `~ c`                     | MACRO        | $c$                 |
+| `~ c`                     | MACRO        | c                 |
 | `#!MMF!#`                 | MACRO        | 'h'                 |
 | `.`                       | MACRO        | 'h'                 |
 | `<para>`                  | para对应的标识    | 未设置                 |
