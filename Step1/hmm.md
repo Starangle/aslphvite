@@ -46,10 +46,11 @@
    `hset->mtab[Hash[id->name]]->structure`，同时在`hset->pmap`中保存以下信息
 
    ```C++
+   m=hset->mtab[Hash[id->name]]
    hashval=(unsigned long int)m->structure % PTRHASHSIZE
-   p->ptr = m->structure; 
-   p->m = m; 
-   p->next = hset->pmap[hashval];
+   hset->pmap[hashval]->ptr = m->structure;
+   hset->pmap[hashval]->m = m;
+   hset->pmap[hashval]->next = hset->pmap[hashval];
    ```
 
 5. 一个完整的hmm定义，将会被存储以下信息：
@@ -139,7 +140,7 @@
       int N=0;
       StateElem *se;
       char buf[MAXSTRLEN];
-      
+
       if (trace&T_PAR) printf("HModel: GetHMMDef\n");
       if (tok->sym != BEGINHMM){
          HMError(src,"<BeginHMM> symbol expected");
@@ -357,7 +358,7 @@ xformbias = ~y macro|<Bias> short vector
 block = <Block> int xform
 inputXform = ~j macro|inhead inmatrix
 inhead = <MMFIdMask> string parmkind [<PreQual>]
-inmatrix = <LinXform> <VecSize> int <BlockInfo> int int {int} block {block} 
+inmatrix = <LinXform> <VecSize> int <BlockInfo> int int {int} block {block}
 block = <Block> int xform
 anndef = [~N macro] <BeginANN> <NumLayers> int layer{layer}<EndANN> layer = <Layer:Exp> int layerinfo layerinfo = ~L macro|<BeginLayer> <LayerKind> string <InputFeature> feamix [parameters] activation <EndLayer>
 feamix = ~F macro|[ <NumFeatures> int int ] feature{feature}
