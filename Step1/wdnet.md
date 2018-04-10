@@ -246,19 +246,24 @@ do {
     }
     while(ptr != NULL);
  ```
-  　newlattice初始化lattice<br>
+
+##### 主要调用函数
+    `newlattice`函数初始化lattice<br>
   　读wdnet文件在`readlattice()`以及`readonelattice()`函数中<br>
-  　nn：lnode的数目,即节点数目<br>
-  　na：larc的数目，即弧的数目<br>
-  　并将填充一系列值，拨号系统中为默认，如utterance等<br>
-  　读wdnet文件在readonelattice函数<br>
-  　getnextfieldname函数读取name，getintfield函数读取数值<br>
-  　N的数值存在nn，L数值存在na，即lat->nn,na;<br>
+    getnextfieldname函数读取name，getintfield函数读取数值<br>
+    
+##### 一些关键变量   
+  　nn：局部变量，lnode的数目,即节点数目<br>
+  　na：局部变量，larc的数目，即弧的数目<br>
+    la、ln：局部变量，链接到lat->lnode节点
+  　除上述两个变量外`lat`结构体还填充一系列值，拨号系统中为默认，如utterance等<br>
+##### 大致流程  　
+  　先读N和L的值，N的数值存在nn，L数值存在na，即lat->nn,na;<br>
  　 之后判断lat->foemat是否为shortarc，短弧，据情况分配空间并初始化<br>
  　 向下依次读I值，读到n中，定位到lat->lnode+n,即ln，紧接着读W值，读信息到wordID，即在voc->wtab中的位置。<br>
  　 wtab储存word结构体数组，地址通过vocabhash定位，其余字符主要修改format信息，没有用到<br>
 　  读完I W行，即所有node信息之后，读J S E值到n,s,e;<br>
-　  写入LARC结构体la，s对应start，e对应end，la->start和end对应lat->lnodes相应位置，线性<br>
+　  写入LARC结构体la，s对应start，e对应end，la->start和end对应lat->lnodes相应位置，位置为线性对应<br>
  　 l r对应lmlike和prlike，暂时没有值，其余字母基本是对应format信息，拨号系统中没有<br>
 
 #### 文件读写相关结构体
