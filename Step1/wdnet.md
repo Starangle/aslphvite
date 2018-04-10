@@ -1,4 +1,4 @@
-### 文件格式
+#### 文件格式
 	VERSION=1.0
 	N=1106 L=2091
 	I=0    W=!NULL             
@@ -23,7 +23,7 @@
 	J=14    S=32   E=4   
 	J=15    S=41   E=4    
 	...
-### 文件中符号含义
+#### 文件中符号含义
 
 * VERSION:版本号<br>
 * I:节点标号<br>
@@ -33,7 +33,7 @@
 * E：弧结束节点的标号<br>
 * 除W外其余数字的赋值即为编号<br>
 
-### 读文件流程
+#### 读文件流程
 newlattice初始化lattice<br>
 读文件在readlattice以及readonelattice函数中<br>
 nn：lnode的数目,即节点数目<br>
@@ -49,10 +49,10 @@ wtab储存word结构体数组，地址通过vocabhash定位，其余字符主要
 写入LARC结构体la，s对应start，e对应end，la->start和end对应lat->lnodes相应位置，线性<br>
 l r对应lmlike和prlike，暂时没有值，其余字母基本是对应format信息，拨号系统中没有<br>
 
-### 文件读写相关结构体
-   >N，函数readonelattice中nn<br>
-   >L，函数readonelattice中na<br>
-   >I，对应lat->lnode+n,链接到ln，lat为lattice结构，函数返回本结构体，ln、la、nn、na等为局部变量<br>
-   >W，wordID，对应voc->wtab[]Word数组中的值，voc储存全局词典信息<br>
-   >J，即弧编号，S，E为弧起点和终点，储存到la->start和la->end，并链接到lat->lnodes对应位置节点<br>
-   >其余信息这个拨号系统中wdnet文件没有涉及，大致是改变lat中format类型限制变量，以及对lat结构体中其余成员进行赋值。<br>
+#### 文件读写相关结构体
+   N，函数readonelattice中nn<br>
+   L，函数readonelattice中na<br>
+   I，对应lat->lnode+n,链接到ln，lat为lattice结构，函数返回本结构体，ln、la、nn、na等为局部变量<br>
+   W，wordID，对应voc->wtab[]Word数组中的值，voc储存全局词典信息<br>
+   J，即弧编号，S，E为弧起点和终点，储存到la->start和la->end，并链接到lat->lnodes对应位置节点<br>
+   其余信息这个拨号系统中wdnet文件没有涉及，大致是改变lat中format类型限制变量，以及对lat结构体中其余成员进行赋值。<br>
