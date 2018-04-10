@@ -1,5 +1,5 @@
 ### 1. 参数说明
-在`dict`加载当中用到了两个比较关键的数据结构`Vocab`和`Word`，其中`Vocab`作为全局变量，记载着`dict`信息，而`Word`作为`dict`加载当中的一个中间变量，只记录一个word及其对应的phones
+在`dict`加载当中用到了两个比较关键的数据结构`Vocab`和`Word`，其中`Vocab`作为全局变量，记载着`dict`信息，而`Word`作为`dict`加载过程中的一个中间变量，只记录一个word及其对应的phones
 
 ### 2.函数调用
 * `InitVocab(&vocab):`  初始化处理全局变量vocab
