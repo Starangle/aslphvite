@@ -39,8 +39,8 @@
  
 
 	  
-      
-	do {
+``` C++      
+do {
      if ((ptr=GetNextFieldName(nbuf,&del,src)) == NULL) 
          break;
 			/* Recognised line types have only one character names */
@@ -245,6 +245,7 @@
     }
     }
     while(ptr != NULL);
+ ```
   　newlattice初始化lattice<br>
   　读文件在readlattice以及readonelattice函数中<br>
   　nn：lnode的数目,即节点数目<br>
