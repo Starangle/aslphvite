@@ -248,14 +248,14 @@ do {
  ```
 
 ##### 主要调用函数
-    `newlattice`函数初始化lattice<br>
-  　读wdnet文件在`readlattice()`以及`readonelattice()`函数中<br>
-    getnextfieldname函数读取name，getintfield函数读取数值<br>
+　　　`newlattice`函数初始化lattice<br>
+ 　　　读wdnet文件在`readlattice()`以及`readonelattice()`函数中<br>
+  　　　getnextfieldname函数读取name，getintfield函数读取数值<br>
     
 ##### 一些关键变量   
   　nn：局部变量，lnode的数目,即节点数目<br>
   　na：局部变量，larc的数目，即弧的数目<br>
-    la、ln：局部变量，链接到lat->lnode节点
+    　la、ln：局部变量，链接到lat->lnode节点
   　除上述两个变量外`lat`结构体还填充一系列值，拨号系统中为默认，如utterance等<br>
 ##### 大致流程  　
   　先读N和L的值，N的数值存在nn，L数值存在na，即lat->nn,na;<br>
