@@ -247,7 +247,7 @@ do {
     while(ptr != NULL);
  ```
   　newlattice初始化lattice<br>
-  　读文件在readlattice以及readonelattice函数中<br>
+  　读wdnet文件在`readlattice()`以及`readonelattice()`函数中<br>
   　nn：lnode的数目,即节点数目<br>
   　na：larc的数目，即弧的数目<br>
   　并将填充一系列值，拨号系统中为默认，如utterance等<br>
